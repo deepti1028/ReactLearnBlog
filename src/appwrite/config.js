@@ -59,6 +59,17 @@ export class Service {
       throw err;
     }
   }
+  async getPost({ slug }) {
+    try {
+      return await this.databases.getDocument(
+        conf.appwriteDatabseId,
+        conf.appwriteCollectionId,
+        slug
+      );
+    } catch (err) {
+      return err;
+    }
+  }
 }
 
 const service = new Service();
