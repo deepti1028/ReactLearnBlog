@@ -94,14 +94,20 @@ export class Service {
     }
   }
   //delete file
-  async deleteFile(fileID) {
+  async deleteFile(fileId) {
     try {
-      return await this.bucket.deleteFile(conf.appwriteBucketId, fileID);
+      return await this.bucket.deleteFile(conf.appwriteBucketId, fileId);
     } catch (err) {
       throw err;
     }
   }
-  //   getFileFile;
+  getFilePreview(fileId) {
+    try {
+      return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 const service = new Service();
