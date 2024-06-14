@@ -54,6 +54,7 @@ export class Service {
         conf.appwriteCollectionId,
         slug
       );
+      return true;
     } catch (err) {
       throw err;
     }
