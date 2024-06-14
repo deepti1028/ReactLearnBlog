@@ -70,6 +70,17 @@ export class Service {
       return err;
     }
   }
+  async getPosts(queries = [Query.equal("status", "active")]) {
+    try {
+      return await this.databases.listDocuments(
+        conf.appwriteDatabseId,
+        conf.appwriteCollectionId,
+        queries
+      );
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 const service = new Service();
