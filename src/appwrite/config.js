@@ -81,6 +81,18 @@ export class Service {
       throw err;
     }
   }
+  //file uploade servide
+  async uploadFile(file) {
+    try {
+      return await this.bucket.createFile(
+        conf.appwriteBucketId,
+        ID.unique(),
+        file
+      );
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 const service = new Service();
