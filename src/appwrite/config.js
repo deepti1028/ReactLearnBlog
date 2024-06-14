@@ -93,6 +93,15 @@ export class Service {
       throw err;
     }
   }
+  //delete file
+  async deleteFile(fileID) {
+    try {
+      return await this.bucket.deleteFile(conf.appwriteBucketId, fileID);
+    } catch (err) {
+      throw err;
+    }
+  }
+  //   getFileFile;
 }
 
 const service = new Service();
