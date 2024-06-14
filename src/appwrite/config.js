@@ -30,6 +30,23 @@ export class Service {
       throw err;
     }
   }
+  async updatePost(slug, { title, content, featuredImage, status }) {
+    try {
+      return await this.databases.updateDocument(
+        conf.appwriteDatabseId,
+        conf.appwriteCollectionId,
+        slug, //document id
+        {
+          title,
+          content,
+          featuredImage,
+          status,
+        }
+      );
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 const service = new Service();
