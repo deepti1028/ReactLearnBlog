@@ -27,7 +27,14 @@ export class AuthService {
       throw err;
     }
   }
-  async getCurrentUser() {}
+  async getCurrentUser() {
+    try {
+      return await this.account.get();
+    } catch (err) {
+      throw err;
+    }
+    return null;
+  }
 }
 const authService = new AuthService();
 export default AuthService;
