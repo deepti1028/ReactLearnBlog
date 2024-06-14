@@ -47,6 +47,17 @@ export class Service {
       throw err;
     }
   }
+  async deletePost({ slug }) {
+    try {
+      await this.databases.deleteDocument(
+        conf.appwriteDatabseId,
+        conf.appwriteCollectionId,
+        slug
+      );
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 const service = new Service();
